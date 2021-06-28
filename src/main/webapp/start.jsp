@@ -23,12 +23,12 @@
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password"> <br> </div>
 
+     <br><br>
+    <input type="submit" formaction="PatientServlet"  value="Login As Client"><br><br>
 
-    <input type="submit" formaction="PatientServlet"  value="loginAsClient"><br><br>
+    <input type="submit"  formaction="DoctorServlet" value="Login As Doctor"><br><br>
 
-    <input type="submit"  formaction="DoctorServlet" value="loginAsDoctor"><br><br>
-
-    <input type="submit"  formaction="AdminServlet" value="loginAsAdmin"><br><br>
+    <input type="submit"  formaction="AdminServlet" value="Login As Admin"><br><br>
 
 
 

@@ -33,7 +33,7 @@ public class AdminServlet extends HttpServlet{
             ResultSet rs = stmt.executeQuery("SELECT * FROM admin");
 
             boolean found = false;
-            while (rs.next() && found==false) {
+            while (rs.next() && !found) {
 
                 if(rs.getString(2).equals(username)){
                     if( rs.getString(4).equals(password)){
@@ -42,7 +42,10 @@ public class AdminServlet extends HttpServlet{
 
                         System.out.println("Succesfull login.");
                         request.getSession().setAttribute("username",username);//to session apothikeyte
+                        request.getSession().setAttribute("password", password);
                         request.getRequestDispatcher("admin.jsp").forward(request, response);//to session paei
+                        request.getRequestDispatcher("createdoctor.jsp").forward(request, response);//to session paei
+                        request.getRequestDispatcher("createdoctor2.jsp").forward(request, response);//to session paei
 
 
                         response.sendRedirect("admin.jsp");
@@ -52,7 +55,7 @@ public class AdminServlet extends HttpServlet{
                 }
 
             }
-            if(found==false) {
+            if(!found) {
                 response.sendRedirect("start.jsp");
             }
             conn.close();

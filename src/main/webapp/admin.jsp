@@ -13,6 +13,19 @@
 <body>
 <div id="banner"><h1>This is admin page for ${username}</h1></div>
 
+<br><br>
+
+<h2>Create Doctor </h2>
+<form action="createdoctor.jsp" method="post">
+    <input type="submit"  value="Create Doctor"></form><br><br>
+
+<h2> Delete Doctor  </h2>
+<form action="deletedoctor.jsp" method="post">
+    <input type="submit" value="Delete Doctor"></form> <br><br>
+
+
+    <br> <br> <br>
+
 <form name ="logout" method="post" action="Logout">
     <button name="logout" type="submit" value="logout">LOGOUT</button>
 </form>
