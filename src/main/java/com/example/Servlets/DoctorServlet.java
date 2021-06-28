@@ -13,10 +13,10 @@ import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.sql.DataSource;
 
-@WebServlet(name = "PatientServlet", value = "/PatientServlet")
+@WebServlet(name = "DoctorServlet", value = "/DoctorServlet")
 
-public class PatientServlet extends HttpServlet{
-    public PatientServlet() throws SQLException {
+public class DoctorServlet extends HttpServlet{
+    public DoctorServlet() throws SQLException {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -30,23 +30,22 @@ public class PatientServlet extends HttpServlet{
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM patient");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM doctor");
 
             boolean found = false;
             while (rs.next() && found==false) {
 
                 if(rs.getString(2).equals(username)){
-                    if( rs.getString(5).equals(password)){
+                    if( rs.getString(4).equals(password)){
 
                         found=true;
-                        //response.getWriter().println("successfull logiiiin");
 
                         System.out.println("Succesfull login.");
                         request.getSession().setAttribute("username",username);//to session apothikeyte
-                        request.getRequestDispatcher("patient.jsp").forward(request, response);//to session paei
+                        request.getRequestDispatcher("doctor.jsp").forward(request, response);//to session paei
 
 
-                        response.sendRedirect("patient.jsp");
+                        response.sendRedirect("doctor.jsp");
                     }
 
 

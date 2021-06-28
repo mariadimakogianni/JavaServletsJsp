@@ -13,15 +13,25 @@
 </head>
 <body>
 <h1> LOGIN</h1>
-<form name="loginForm" method="post" action="PatientServlet">
+<form name="loginForm" method="post" >
+
+    <div>
     <label for="username">Username</label><br>
-    <input type="text" id="username" name="username"><br>
+        <input type="text" id="username" name="username"><br> </div>
+
+    <div>
     <label for="password">Password</label><br>
-    <input type="text" id="password" name="password">
-    <input type="submit" value="Login" />
+    <input type="password" id="password" name="password"> <br> </div>
+
+
+    <input type="submit" formaction="PatientServlet"  value="loginAsClient"><br><br>
+
+    <input type="submit"  formaction="DoctorServlet" value="loginAsDoctor"><br><br>
+
+    <input type="submit"  formaction="AdminServlet" value="loginAsAdmin"><br><br>
+
+
+
 </form>
-
-
-
 </body>
 </html>
