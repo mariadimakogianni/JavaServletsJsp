@@ -1,4 +1,6 @@
 package com.example.Servlets;
+import Utils.BCrypt;
+
 import java.io.*;
 import java.sql.*;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.sql.DataSource;
+import Utils.*;
 
 @WebServlet(name = "DoctorServlet", value = "/DoctorServlet")
 
@@ -30,40 +33,43 @@ public class DoctorServlet extends HttpServlet{
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM doctor");
+            PreparedStatement ps = conn.prepareStatement("SELECT password FROM doctor WHERE username=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            System.out.println ( rs ) ;
 
             boolean found = false;
             while (rs.next() && found==false) {
+                String hashed = rs.getString("password");
+                boolean hash_pass = BCrypt.checkpw(password, hashed);
+                if(hash_pass){
 
-                if(rs.getString(2).equals(username)){
-                    if( rs.getString(4).equals(password)){
+                    found=true;
 
-                        found=true;
-
-                        System.out.println("Succesfull login.");
-                        request.getSession().setAttribute("username",username);//to session apothikeyte
-                        request.getRequestDispatcher("doctor.jsp").forward(request, response);//to session paei
-
-
-                        response.sendRedirect("doctor.jsp");
-                    }
+                    System.out.println("Succesfull login.");
+                    request.getSession().setAttribute("username",username);//to session apothikeyte
+                    request.getRequestDispatcher("doctor.jsp").forward(request, response);//to session paei
 
 
+                    response.sendRedirect("doctor.jsp");
                 }
 
-            }
-            if(found==false) {
-                response.sendRedirect("start.jsp");
-            }
-            conn.close();
-            stmt.close();
-            rs.close();
-        } catch (SQLException | ServletException throwables){
-            throwables.printStackTrace();
-            response.getWriter().println("exception");
-        }
 
+            }
+
+        if(found==false) {
+            response.sendRedirect("start.jsp");
+        }
+        conn.close();
+        stmt.close();
+        rs.close();
+    } catch (SQLException | ServletException throwables){
+        throwables.printStackTrace();
+        response.getWriter().println("exception");
     }
+
+}
 //jdbc:postgresql://localhost:5432/telikhergasia
 
 

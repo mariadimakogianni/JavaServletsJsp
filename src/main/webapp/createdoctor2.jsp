@@ -1,6 +1,7 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
+<%@ page import="Utils.*"  %>
 <%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: user
@@ -17,11 +18,19 @@
 <div id="banner"><h1>This is admin page for ${username}</h1></div>
 
 <%
+
         String userid=request.getParameter("userid");
         String username=request.getParameter("username");
         String full_name=request.getParameter("full_name");
         String password=request.getParameter("password");
         String specialty=request.getParameter("specialty");
+
+
+    int workload = 12;
+    String salt = BCrypt.gensalt(workload);
+    String password_hash= BCrypt.hashpw(password, salt);
+
+
         System.out.println(userid+username+full_name+password+specialty);
 
 
@@ -30,10 +39,11 @@
         Statement stmt = conn.createStatement();
 
         //hash+salt password
+        
 
 
 
-        stmt.executeUpdate("insert into doctor(id,username,full_name,password,specialty)values('"+userid+"','"+username+"','"+full_name+"','"+password+"','"+specialty+"')");
+        stmt.executeUpdate("insert into doctor(id,username,full_name,password,specialty)values('"+userid+"','"+username+"','"+full_name+"','"+password_hash+"','"+specialty+"')");
 
         %>
 
