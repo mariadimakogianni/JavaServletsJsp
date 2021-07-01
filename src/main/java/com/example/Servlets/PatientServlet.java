@@ -1,4 +1,6 @@
 package com.example.Servlets;
+import Utils.BCrypt;
+
 import java.io.*;
 import java.sql.*;
 import javax.servlet.RequestDispatcher;
@@ -30,13 +32,15 @@ public class PatientServlet extends HttpServlet{
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM patient");
+            PreparedStatement ps = conn.prepareStatement("SELECT password FROM patient WHERE username=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
 
             boolean found = false;
             while (rs.next() && found==false) {
-
-                if(rs.getString(2).equals(username)){
-                    if( rs.getString(5).equals(password)){
+                String hashed = rs.getString("password");
+                boolean hash_pass = BCrypt.checkpw(password, hashed);
+                if(hash_pass){
 
                         found=true;
                         //response.getWriter().println("successfull logiiiin");
@@ -50,7 +54,7 @@ public class PatientServlet extends HttpServlet{
                     }
 
 
-                }
+
 
             }
             if(found==false) {

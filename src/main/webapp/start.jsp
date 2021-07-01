@@ -24,7 +24,7 @@
     <input type="password" id="password" name="password"> <br> </div>
 
      <br><br>
-    <input type="submit" formaction="PatientServlet"  value="Login As Client"><br><br>
+    <input type="submit" formaction="PatientServlet"  value="Login As Patient"><br><br>
 
     <input type="submit"  formaction="DoctorServlet" value="Login As Doctor"><br><br>
 

@@ -12,18 +12,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>CreateDoctor</title>
+    <title>CreatePatient</title>
 </head>
 <body>
 <div id="banner"><h1>This is admin page for ${username}</h1></div>
 
 <%
 
-        String userid=request.getParameter("userid");
-        String username=request.getParameter("username");
-        String full_name=request.getParameter("full_name");
-        String password=request.getParameter("password");
-        String specialty=request.getParameter("specialty");
+    String userid=request.getParameter("userid");
+    String username=request.getParameter("username");
+    String full_name=request.getParameter("full_name");
+    String amka=request.getParameter("amka");
+    String password=request.getParameter("password");
 
 
     int workload = 12;
@@ -31,7 +31,7 @@
     String password_hash= BCrypt.hashpw(password, salt);
 
 
-        System.out.println(userid+username+full_name+password+specialty);
+    System.out.println(userid+username+full_name+amka+password);
 
 
     try {
@@ -39,12 +39,12 @@
         Statement stmt = conn.createStatement();
 
 
-        stmt.executeUpdate("insert into doctor(id,username,full_name,password,specialty)values('"+userid+"','"+username+"','"+full_name+"','"+password_hash+"','"+specialty+"')");
+        stmt.executeUpdate("insert into patient(id,username,full_name,amka,password)values('"+userid+"','"+username+"','"+full_name+"','"+amka+"','"+password_hash+"')");
 
-        %>
+%>
 
 
-        <h2>Doctor is successfully inserted</h2>
+<h2>Patient is successfully inserted</h2>
 
 
 
