@@ -38,10 +38,6 @@
         Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
         Statement stmt = conn.createStatement();
 
-        //hash+salt password
-        
-
-
 
         stmt.executeUpdate("insert into doctor(id,username,full_name,password,specialty)values('"+userid+"','"+username+"','"+full_name+"','"+password_hash+"','"+specialty+"')");
 
