@@ -33,13 +33,15 @@ public class AdminServlet extends HttpServlet{
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM admin");
+            PreparedStatement ps = conn.prepareStatement("SELECT password FROM admin WHERE username=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
 
             boolean found = false;
             while (rs.next() && !found) {
-
-                if(rs.getString(2).equals(username)){
-                    if( rs.getString(4).equals(password)){
+                String hashed = rs.getString("password");
+                boolean hash_pass = BCrypt.checkpw(password, hashed);
+                if(hash_pass){
 
                         found=true;
 
@@ -47,8 +49,16 @@ public class AdminServlet extends HttpServlet{
                         request.getSession().setAttribute("username",username);//to session apothikeyte
                         request.getSession().setAttribute("password", password);
                         request.getRequestDispatcher("admin.jsp").forward(request, response);//to session paei
-                        request.getRequestDispatcher("createdoctor.jsp").forward(request, response);//to session paei
-                        request.getRequestDispatcher("createdoctor2.jsp").forward(request, response);//to session paei
+                        request.getRequestDispatcher("createdoctor.jsp").forward(request, response);
+                        request.getRequestDispatcher("createdoctor2.jsp").forward(request, response);
+                        request.getRequestDispatcher("createpatient.jsp").forward(request, response);
+                        request.getRequestDispatcher("createpatient2.jsp").forward(request, response);
+                        request.getRequestDispatcher("deletedoctor.jsp").forward(request, response);
+                        request.getRequestDispatcher("deletedoctor2.jsp").forward(request, response);
+                    request.getRequestDispatcher("createadmin.jsp").forward(request, response);
+                    request.getRequestDispatcher("createadmin2.jsp").forward(request, response);
+                    request.getRequestDispatcher("deletepatient.jsp").forward(request, response);
+                    request.getRequestDispatcher("deletepatient2.jsp").forward(request, response);
 
 
                         response.sendRedirect("admin.jsp");
@@ -57,7 +67,6 @@ public class AdminServlet extends HttpServlet{
 
                 }
 
-            }
             if(!found) {
                 response.sendRedirect("start.jsp");
             }

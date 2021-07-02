@@ -10,35 +10,35 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-    <title>DeleteDoctor</title>
+    <title>DeletePatient</title>
 </head>
 <body>
 <div id="banner"><h1>This is admin page for ${username}</h1></div>
 
-<%
+    <%
     String id=request.getParameter("id");
 
 %>
-<h1>Epelekses ton doctor : <%=id%></h1>
+<h1>Epelekses ton patient : <%=id%></h1>
 
 
-<%
+    <%
 try {
 Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
 Statement stmt = conn.createStatement();
 
 
-stmt.executeUpdate("DELETE   from  doctor where   (id="+id+");");
+stmt.executeUpdate("DELETE   from  patient where   (id="+id+");");
 
 %>
 
 
-<h2>Doctor is successfully deleted</h2>
+<h2>Patient is successfully deleted</h2>
 
 
 
 
-<%
+    <%
     }
     catch(Exception e)
     {
@@ -49,17 +49,3 @@ stmt.executeUpdate("DELETE   from  doctor where   (id="+id+");");
 
 
 %>
-
-
-
-
-
-
-<form method=post action=admin.jsp>
-    <button type=submit>BACK</button>
-</form>
-<form name ="logout" method="post" action="Logout">
-    <button name="logout" type="submit" value="logout">LOGOUT</button>
-</form>
-</body>
-</html>

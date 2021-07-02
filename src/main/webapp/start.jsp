@@ -33,5 +33,11 @@
 
 
 </form>
+
+<br> <br>
+<form method="post" action="create.jsp">
+    <input name="id" type="submit" value="CREATE PATIENT">
+
+</form>
 </body>
 </html>

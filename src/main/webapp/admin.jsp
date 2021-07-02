@@ -20,6 +20,8 @@
         <td>Create Doctor </td>
         <td>Delete Doctor </td>
         <td>Create Patient </td>
+        <td>Delete Patient </td>
+        <td>Create Admin </td>
     </tr>
     <tr>
     <td><form action="createdoctor.jsp" method="post">
@@ -30,6 +32,12 @@
 
      <td> <form action="createpatient.jsp" method="post">
     <input type="submit" value="Create Patient"></form> <br><br> </td>
+
+    <td> <form action="deletepatient.jsp" method="post">
+    <input type="submit" value="Delete Patient"></form> <br><br> </td>
+
+    <td> <form action="createadmin.jsp" method="post">
+    <input type="submit" value="Create Admin"></form> <br><br> </td>
 
     </tr>
     <br> <br> <br>
