@@ -19,7 +19,7 @@
 
 <%
 
-        String userid=request.getParameter("userid");
+        //String userid=request.getParameter("userid");
         String username=request.getParameter("username");
         String full_name=request.getParameter("full_name");
         String password=request.getParameter("password");
@@ -31,7 +31,7 @@
     String password_hash= BCrypt.hashpw(password, salt);
 
 
-        System.out.println(userid+username+full_name+password+specialty);
+        System.out.println(username+full_name+password+specialty);
 
 
     try {
@@ -39,7 +39,7 @@
         Statement stmt = conn.createStatement();
 
 
-        stmt.executeUpdate("insert into doctor(id,username,full_name,password,specialty)values('"+userid+"','"+username+"','"+full_name+"','"+password_hash+"','"+specialty+"')");
+        stmt.executeUpdate("insert into doctor(username,full_name,password,specialty)values('"+username+"','"+full_name+"','"+password_hash+"','"+specialty+"')");
 
         %>
 

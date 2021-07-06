@@ -49,3 +49,12 @@ stmt.executeUpdate("DELETE   from  patient where   (id="+id+");");
 
 
 %>
+
+<form method=post action=admin.jsp>
+    <button type=submit>BACK</button>
+</form>
+<form name ="logout" method="post" action="Logout">
+    <button name="logout" type="submit" value="logout">LOGOUT</button>
+</form>
+</body>
+</html>

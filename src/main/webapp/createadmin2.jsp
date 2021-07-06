@@ -19,7 +19,7 @@
 
 <%
 
-    String userid=request.getParameter("userid");
+    //String userid=request.getParameter("userid");
     String username=request.getParameter("username");
     String full_name=request.getParameter("full_name");
     String password=request.getParameter("password");
@@ -30,7 +30,7 @@
     String password_hash= BCrypt.hashpw(password, salt);
 
 
-    System.out.println(userid+username+full_name+password);
+    System.out.println(username+full_name+password);
 
 
     try {
@@ -38,7 +38,7 @@
         Statement stmt = conn.createStatement();
 
 
-        stmt.executeUpdate("insert into admin(id,username,full_name,password)values('"+userid+"','"+username+"','"+full_name+"','"+password_hash+"')");
+        stmt.executeUpdate("insert into admin(username,full_name,password)values('"+username+"','"+full_name+"','"+password_hash+"')");
 
 %>
 
