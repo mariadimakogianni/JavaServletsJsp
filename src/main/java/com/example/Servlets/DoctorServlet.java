@@ -55,7 +55,8 @@ public class DoctorServlet extends HttpServlet{
                     request.getRequestDispatcher("doctor.jsp").forward(request, response);//to session paei
                     request.getRequestDispatcher("insertavail.jsp").forward(request, response);//to session paei
                     request.getRequestDispatcher("insertavail2.jsp").forward(request, response);//to session paei
-
+                    request.getRequestDispatcher("doctorapp.jsp").forward(request, response);//to session paei
+                    request.getRequestDispatcher("doctordelapp.jsp").forward(request, response);//to session paei
                     response.sendRedirect("doctor.jsp");
                 }
 

@@ -17,6 +17,9 @@
 <form action="insertavail.jsp" method="post">
     <input type="submit" value="Insert Availability"></form> <br><br>
 
+<form action="doctorapp.jsp" method="post">
+    <input type="submit" value="Show Appointments"></form> <br><br>
+
 
 <form name ="logout" method="post" action="Logout">
     <button name="logout" type="submit" value="logout">LOGOUT</button>
