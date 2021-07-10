@@ -21,10 +21,8 @@
     <button name="pers_det" type="submit" value="pers_det">Show your personal details</button>
 </form>
 
-
-<form name="patient" method="get" action="PatientApp" >
-    <button name="appointments" type="submit" value="appoinments">Show your appointments</button>
-</form>
+<form action="patientapp.jsp" method="post">
+    <input type="submit" value="Show your appointmentss"></form> <br><br>
 
 <form action="makeapp1.jsp" method="post">
     <input type="submit" value="Make an Appointment"></form> <br><br>

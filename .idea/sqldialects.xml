@@ -4,7 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/Servlets/AdminServlet.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/Servlets/DateServlet.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/Servlets/DoctorServlet.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/Servlets/PatientApp.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/Servlets/PatientPers.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/Servlets/PatientServlet.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/createadmin2.jsp" dialect="GenericSQL" />
