@@ -32,7 +32,7 @@ public class PatientServlet extends HttpServlet{
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/telikhergasia", "postgres", "1234");
             Statement stmt = conn.createStatement();
-            PreparedStatement ps = conn.prepareStatement("SELECT password FROM patient WHERE username=?");
+            PreparedStatement ps = conn.prepareStatement("SELECT password, id FROM patient WHERE username=?");
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
 
@@ -42,14 +42,18 @@ public class PatientServlet extends HttpServlet{
                 boolean hash_pass = BCrypt.checkpw(password, hashed);
                 if(hash_pass){
 
+                    Integer patient_id = rs.getInt("id");
+                    System.out.println(patient_id);
+
                         found=true;
                         //response.getWriter().println("successfull logiiiin");
 
                         System.out.println("Succesfull login.");
                         request.getSession().setAttribute("username",username);//to session apothikeyte
+                    request.getSession().setAttribute("patient_id",patient_id);
                         request.getRequestDispatcher("patient.jsp").forward(request, response);//to session paei
-
-
+                    request.getRequestDispatcher("makeapp1.jsp").forward(request, response);//to session paei
+                    request.getRequestDispatcher("makeapp2.jsp").forward(request, response);//to session paei
                         response.sendRedirect("patient.jsp");
                     }
 

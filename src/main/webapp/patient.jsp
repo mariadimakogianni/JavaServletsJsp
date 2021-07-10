@@ -26,6 +26,9 @@
     <button name="appointments" type="submit" value="appoinments">Show your appointments</button>
 </form>
 
+<form action="makeapp1.jsp" method="post">
+    <input type="submit" value="Make an Appointment"></form> <br><br>
+
 
 <form name ="logout" method="post" action="Logout">
 <button name="logout" type="submit" value="logout">LOGOUT</button>
