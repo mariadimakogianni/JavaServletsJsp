@@ -61,7 +61,7 @@ public class PatientPers extends HttpServlet {
 
                 }
                 if(found==false) {
-                    response.sendRedirect("start.jsp");
+                    response.sendRedirect("patient.jsp");
                 }
                 out.println("</br>");
                 out.println("<form method=\"post\" action=\"patient.jsp\">");
