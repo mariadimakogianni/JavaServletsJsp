@@ -18,7 +18,7 @@
 <form method="post" action="insertavail2.jsp">
 
 <label for="availability">Availability:</label>
-<input type="date" id="availability" name="availability">
+<input type="date" min="2021-07-12"  id="availability" name="availability">
 
 Hours:<br>
 <select id="hours" name="hours" multiple>
