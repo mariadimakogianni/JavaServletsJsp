@@ -7,9 +7,7 @@
 <h1> here you create patient</h1>
 
 <form method="post" action="create2.jsp">
-    Userid:<br>
-    <input type="text" name="userid">
-    <br>
+
     Username:<br>
     <input type="text" name="username">
     <br>

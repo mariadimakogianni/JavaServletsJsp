@@ -18,7 +18,7 @@
 
 <%
 
-    String userid=request.getParameter("userid");
+
     String username=request.getParameter("username");
     String full_name=request.getParameter("full_name");
     String amka=request.getParameter("amka");
@@ -30,7 +30,7 @@
     String password_hash= BCrypt.hashpw(password, salt);
 
 
-    System.out.println(userid+username+full_name+amka+password);
+    System.out.println(username+full_name+amka+password);
 
 
     try {
@@ -38,7 +38,7 @@
         Statement stmt = conn.createStatement();
 
 
-        stmt.executeUpdate("insert into patient(id,username,full_name,amka,password)values('"+userid+"','"+username+"','"+full_name+"','"+amka+"','"+password_hash+"')");
+        stmt.executeUpdate("insert into patient(username,full_name,amka,password)values('"+username+"','"+full_name+"','"+amka+"','"+password_hash+"')");
 
 %>
 
