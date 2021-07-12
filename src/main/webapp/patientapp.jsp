@@ -4,10 +4,11 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-    <title>PATIENT</title>
+    <title>PATIENT APPOINTMENTS</title>
 </head>
 <body>
 <div id="banner"><h1>This is patient page for ${username}</h1></div>
+
 <h2> Here are your appointments </h2>
 
 <table align="center" cellpadding="5" cellspacing="5" border="1">

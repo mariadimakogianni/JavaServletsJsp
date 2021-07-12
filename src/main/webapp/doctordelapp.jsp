@@ -4,7 +4,7 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-    <title>DOCTOR</title>
+    <title>DOCTOR APPOINTMENTS</title>
 </head>
 <body>
 <div id="banner"><h1>This is doctor page for ${username}</h1></div>

@@ -14,6 +14,7 @@
 <div id="banner"><h1>This is doctor page for ${username}</h1></div>
 
 <h2>Please choose an option </h2>
+
 <form action="insertavail.jsp" method="post">
     <input type="submit" value="Insert Availability"></form> <br><br>
 

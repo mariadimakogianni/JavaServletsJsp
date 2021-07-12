@@ -4,7 +4,7 @@
 <%@ page import="java.sql.*" %>
 <html>
 <head>
-    <title>PATIENT</title>
+    <title>PATIENT APPOINTMENTS</title>
 </head>
 <body>
 <div id="banner"><h1>This is patient page for ${username}</h1></div>
@@ -24,6 +24,7 @@
 
 
         stmt.executeUpdate("DELETE   from  appointment where   (id="+id+");");
+
 
 %>
 

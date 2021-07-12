@@ -1,5 +1,4 @@
 
-
 <%@ page import="java.io.PrintWriter" %><%--
   Created by IntelliJ IDEA.
   User: user
@@ -17,9 +16,10 @@
 
 
 <h2>Please choose an option </h2>
+
 <form name="patient" method="get" action="PatientPers" >
     <button name="pers_det" type="submit" value="pers_det">Show your personal details</button>
-</form>
+</form> <br><br>
 
 <form action="patientapp.jsp" method="post">
     <input type="submit" value="Show your appointmentss"></form> <br><br>

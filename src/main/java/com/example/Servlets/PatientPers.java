@@ -33,7 +33,7 @@ public class PatientPers extends HttpServlet {
                 ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE (username='"+usernam+"')");
 
                 boolean found = false;
-                while (rs.next() && found==false) {
+                while (rs.next() && !found) {
 
                     if(rs.getString(2).equals(usernam)){
                             found=true;

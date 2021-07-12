@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="banner"><h1>This is admin page for ${username}</h1></div>
-<h1> here you create admin</h1>
+<h1> Here you create an admin</h1>
 
 <form method="post" action="createadmin2.jsp">
 

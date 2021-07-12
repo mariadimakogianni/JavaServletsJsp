@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="banner"><h1>This is admin page for ${username}</h1></div>
-<h1> here you delete patient</h1>
+<h1> Here you delete a patient</h1>
 
 <table align="center" cellpadding="5" cellspacing="5" border="1">
     <tr>

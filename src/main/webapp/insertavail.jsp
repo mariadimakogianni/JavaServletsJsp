@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>DOCTOR</title>
+    <title>DOCTOR AVAILABILITY</title>
 </head>
 <body>
 <div id="banner"><h1>This is doctor page for ${username}</h1></div>
+
 <h2> Here you insert your availability </h2>
 
 <form method="post" action="insertavail2.jsp">
